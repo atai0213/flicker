@@ -1,0 +1,25 @@
+<div data-turbo="false">
+  <%= form_with url: "/", method: 'get', local: true do |form| %>
+    <div>
+
+    <div>
+
+      <%= form.text_area :user_id %><br>
+
+    </div>
+      <%= form.hidden_field :api_key, value: "74ad1960737d1f7e008295f5c4e3e8fd" %>
+      <%= form.hidden_field :method, value: "flickr.people.getPhotos" %>
+    <div>
+
+    <div>
+      <%= form.submit "Submit" %>
+    </div>
+  <% end %>
+</div>
+
+<% if @photos %>
+  <% @photos.each do |photo| %>
+    <%= link_to(photo[0], photo[1]) %>
+  <% end %>
+<% end %>
+
